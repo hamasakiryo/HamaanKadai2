@@ -58,9 +58,9 @@ struct ContentView: View{
         case .multiplication:
             total = String(doubleNums[0] * doubleNums[1])
         case .division:
-            //割る数(doubleNums[1])が0の場合に"割る数には0を入力してください"を表示
+            //割る数(doubleNums[1])が0の場合に"割る数には0以外を入力してください"を表示
             if doubleNums[1] == 0 {
-                total = "割る数には0を入力してください"
+                total = "割る数には0以外を入力してください"
             } else {
                 total = String(doubleNums[0] / doubleNums[1])
             }
