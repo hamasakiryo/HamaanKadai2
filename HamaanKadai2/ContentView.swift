@@ -10,8 +10,8 @@ enum FourArithmeticOperators: String, CaseIterable, Identifiable {
     var id: Self { self } //自分自身のインスタンスをidプロパティとして扱う
     case addition = "+"
     case subtraction = "-"
-    case division = "×"
-    case multiplication = "÷"
+    case multiplication = "×" //multiplication...「掛け算」
+    case division = "÷" //division...「割り算」
 }
 
 struct ContentView: View{
@@ -55,9 +55,9 @@ struct ContentView: View{
             total = String(doubleNums[0] + doubleNums[1])
         case .subtraction:
             total = String(doubleNums[0] - doubleNums[1])
-        case .division:
-            total = String(doubleNums[0] * doubleNums[1])
         case .multiplication:
+            total = String(doubleNums[0] * doubleNums[1])
+        case .division:
             //割る数(doubleNums[1])が0の場合に"割る数には0を入力してください"を表示
             if doubleNums[1] == 0 {
                 total = "割る数には0を入力してください"
