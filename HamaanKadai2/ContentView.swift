@@ -10,8 +10,8 @@ enum FourArithmeticOperators: String, CaseIterable, Identifiable {
     var id: Self { self } //自分自身のインスタンスをidプロパティとして扱う
     case addition = "+"
     case subtraction = "-"
-    case division = "×"
-    case multiplication = "÷"
+    case multiplication = "×"
+    case division = "÷"
 }
 
 struct ContentView: View{
@@ -39,10 +39,10 @@ struct ContentView: View{
             let doubleNums = stringNums.map { Double($0) ?? 0 }
             
             //🟥テキストフィールドに数字が入力されていない時に"数字を入力してください"を表示する
-            if !num1.isEmpty && !num2.isEmpty {
-                calculatorBySelectedValue(doubleNums: doubleNums)
-            } else {
+            if num1.isEmpty || num2.isEmpty {
                 total = "数字を入力してください"
+            } else {
+                calculatorBySelectedValue(doubleNums: doubleNums)
             }
         }
         Text(total)
@@ -55,12 +55,12 @@ struct ContentView: View{
             total = String(doubleNums[0] + doubleNums[1])
         case .subtraction:
             total = String(doubleNums[0] - doubleNums[1])
-        case .division:
-            total = String(doubleNums[0] * doubleNums[1])
         case .multiplication:
+            total = String(doubleNums[0] * doubleNums[1])
+        case .division:
             //割る数(doubleNums[1])が0の場合に"割る数には0を入力してください"を表示
             if doubleNums[1] == 0 {
-                total = "割る数には0を入力してください"
+                total = "割る数には0以外を入力してください"
             } else {
                 total = String(doubleNums[0] / doubleNums[1])
             }
