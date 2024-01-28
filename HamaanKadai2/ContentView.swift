@@ -39,10 +39,10 @@ struct ContentView: View{
             let doubleNums = stringNums.map { Double($0) ?? 0 }
             
             //🟥テキストフィールドに数字が入力されていない時に"数字を入力してください"を表示する
-            if !num1.isEmpty && !num2.isEmpty {
-                calculatorBySelectedValue(doubleNums: doubleNums)
-            } else {
+            if num1.isEmpty || num2.isEmpty {
                 total = "数字を入力してください"
+            } else {
+                calculatorBySelectedValue(doubleNums: doubleNums)
             }
         }
         Text(total)
